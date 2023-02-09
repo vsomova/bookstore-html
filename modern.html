@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>The Other World Bookstore</title>
+<style>
+@import url(tow.css);
+</style>
+</head>
+
+<body>
+    
+    <header>
+        <h1>The Other World Bookstore</h1>
+        <nav>
+            <ul id="flex_container">
+                <li class="flex_item"><a href="index.html">Home</a></li>
+                <li class="flex_item"><a href="contact.html">Contact us</a></li>
+                <li class="flex_item"><a href="classic.html">Classic literature</a></li>
+                <li class="flex_item"><a href="modern.html">Modern literature</a></li>
+            </ul>
+        </nav>  
+    </header>
+    
+<main>
+    <h1>Discover modern literature</h1>
+    <p>Our goal is to encourage reading at the most affordable price of $5 per book</p>
+    <form>
+        <div id="grid_container">
+        <div class="grid_item">
+            <img class="book" src="images/atmo.jpeg">
+            <p>"Atmospheric Embroidery: Poems" by Meena Alexander</p>
+            <p>Quantity: <input type = 'number' id='n1'></p>
+        </div>
+        <div class="grid_item">
+            <img class="book" src="images/resilience.jpeg">
+            <p>"Resilience: How Your Inner Strength Can Set You Free from the Past" by Boris Cyrulnik</p>
+            <p>Quantity: <input type = 'number' id='n2'></p>
+        </div>
+        <div class="grid_item">
+            <img class="book" src="images/themind.jpeg">
+            <p>"The Mind" by John FitzGerald</p>
+            <p>Quantity: <input type = 'number' id='n3'></p>
+        </div>
+        <div class="grid_item">
+            <img class="book" src="images/thingsidont.jpeg">
+            <p>"Things I Don’t Want to Know: On Writing" by Deborah Levy</p>
+            <p>Quantity: <input type = 'number' id='n4'></p>
+        </div>
+        </div>
+        <p>Enter your full name: <input type = 'text' id='name'></p>
+        <p>Enter your email address: <input type = 'text' id='email'></p>
+        <p>Enter your home address: <input type = 'text' id='address'></p>
+        <p>Enter your phone number: <input type = 'tel' id='phone'></p>
+    </form>
+    <p><input type='submit' value="Checkout" onclick='purchase();'></p>
+    <p id='response'></p>
+    
+</main>
+    
+<footer>
+    <hr>
+    <p>All rights reserved &copy; 2022 (or not)</p>
+</footer>
+
+    
+<!--js code-->
+    
+<script>
+    function purchase() {
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var address = document.getElementById('address').value;
+        var phone = document.getElementById('phone').value;
+        if (name=="" || email=="" || address=="" || phone=="") {
+            document.getElementById('response').innerHTML = "Please fill in all your information!";
+        }
+        else {
+            var total = 0;
+            var n1 = Number(document.getElementById('n1').value);
+            var n2 = Number(document.getElementById('n2').value);
+            var n3 = Number(document.getElementById('n3').value);
+            var n4 = Number(document.getElementById('n4').value);
+            var total = (n1+n2+n3+n4)*5;
+            if (total==0) {
+                document.getElementById('response').innerHTML = "You didn't purchase anything &#x1F97A;";
+            }
+            else {
+            document.getElementById('response').innerHTML = 'Your total is: $' + total + "<br>Your order will be delivered to " + address + "<br>Thank you for your purchase!";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
